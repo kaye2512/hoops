@@ -8,7 +8,7 @@ export default function NavBar() {
   return (
     <div className="border-b border-border">
       <Container className="">
-        <div className="flex h-16 shrink-0 items-center justify-between gap-28">
+        <div className="flex h-16 shrink-0 items-center justify-between  gap-28">
           <Logo />
           <SearchFilter />
           <CallToAction />
@@ -18,15 +18,17 @@ export default function NavBar() {
           <div className=""></div>
           {/* rendre les lien interactifs */}
           <div className="flex gap-4 grid-span-2">
-            <div className="text-slate-600">
-              <Link href="/">Holographic Neon Jacket</Link>
-            </div>
-            <div>
-              <Link href="/">Casual Streetwear</Link>
-            </div>
-            <div className="text-slate-600">
-              <Link href="/">80&apos;s Outfit</Link>
-            </div>
+            <Link href="/">
+              <p className="text-slate-600">Holographic Neon Jacket</p>
+            </Link>
+
+            <Link href="/">
+              <p>Casual Streetwear</p>
+            </Link>
+
+            <Link href="/">
+              <p className="text-slate-600">80&apos;s Outfit</p>
+            </Link>
           </div>
 
           <div className="text-center">
