@@ -13,11 +13,11 @@ export default function NavBar() {
           <SearchFilter />
           <CallToAction />
         </div>
-        <div className="grid grid-cols-3 gap-4">
+        <div className="grid grid-cols-7 gap-4">
           {/* grid vide pour me permettre de mettre de bouger les liens sur la 2e colonne */}
           <div className=""></div>
           {/* rendre les lien interactifs */}
-          <div className="flex gap-4 grid-span-2">
+          <div className="flex gap-14 col-span-5 pl-20">
             <Link href="/">
               <p className="text-slate-600">Holographic Neon Jacket</p>
             </Link>
@@ -31,7 +31,7 @@ export default function NavBar() {
             </Link>
           </div>
 
-          <div className="text-center">
+          <div className="text-center pr-5">
             <p>Ship to Address</p>
           </div>
         </div>
