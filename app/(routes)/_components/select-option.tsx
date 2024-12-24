@@ -12,7 +12,7 @@ export default function SelectOption() {
   return (
     <div>
       <Select>
-        <SelectTrigger className="border-none">
+        <SelectTrigger className="border-none pl-4">
           <SelectValue placeholder="Men's" />
           <SelectContent className="w-[180px]">
             <SelectGroup>

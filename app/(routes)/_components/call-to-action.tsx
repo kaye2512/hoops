@@ -18,12 +18,12 @@ export default function CallToAction() {
 
         <div className="flex space-x-4">
           <Button
-            className="border border-2 border-gray-950"
+            className="border border-2 border-gray-950  font-semibold text-base"
             variant="secondary"
           >
             <Link href={"/login"}>Sign in</Link>
           </Button>
-          <Button>
+          <Button className="font-semibold text-base">
             <Link href={"/signup"}>Register</Link>
           </Button>
         </div>

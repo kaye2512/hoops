@@ -6,7 +6,7 @@ export default function HeartButton() {
   */
   return (
     <div className="cursor-pointer">
-      <Heart size={180} />
+      <Heart size={200} />
     </div>
   );
 }

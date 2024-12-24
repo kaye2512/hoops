@@ -6,7 +6,7 @@ export default function BellButton() {
   */
   return (
     <div className="cursor-pointer">
-      <Notif size={180} />
+      <Notif size={200} />
     </div>
   );
 }
