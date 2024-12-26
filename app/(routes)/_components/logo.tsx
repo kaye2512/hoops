@@ -13,7 +13,7 @@ export default function Logo() {
       alt="Logo"
       width={128}
       height={128}
-      className="cursor-pointer hidden md:block sm:hidden"
+      className="cursor-pointer max-lg:w-24 max-lg:h-16 max-md:w-20 max-md:h-14 max-sm:w-16 max-sm:h-12"
     />
   );
 }

@@ -5,8 +5,8 @@ export default function BagButton() {
    TO DO: afficher le nombre de produit dans le panier, en rouge
   */
   return (
-    <div className="cursor-pointer bg-slate-50 rounded-md ">
-      <Bag size={120} />
+    <div className="cursor-pointer bg-slate-50 rounded-md">
+      <Bag size={60} className=" max-sm:w-8 max-sm:h-8" />
     </div>
   );
 }
