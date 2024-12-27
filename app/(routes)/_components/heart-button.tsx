@@ -8,7 +8,7 @@ export default function HeartButton() {
     <div className="cursor-pointer">
       <Heart
         size={90}
-        className=" max-md:w-6 max-md:h-6 max-sm:w-8 max-sm:h-8"
+        className="h-6 w-6 sm:h-7 sm:w-7 md:h-8 md:w-8 lg:h-9 lg:w-9"
       />
     </div>
   );

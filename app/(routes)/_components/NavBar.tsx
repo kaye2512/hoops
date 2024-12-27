@@ -18,62 +18,65 @@ export default function NavBar() {
   return (
     <div className="border-b border-border">
       <Container>
-        <div className="flex h-16 shrink-0 items-center justify-between gap-28 max-lg:gap-16 max-md:gap-8 max-sm:flex max-sm:justify-between max-lg:justify-between">
+        {/* Premier bloc - Header principal */}
+        <div className="flex h-16 items-center justify-between">
           <Logo />
-          <SearchFilter />
-          <IconCTA />
-          <CallToAction />
+          {/* SearchFilter et CallToAction cachés sur mobile */}
+          <div className="hidden sm:block">
+            <SearchFilter />
+          </div>
+          <div className="hidden sm:block">
+            <IconCTA />
+          </div>
+          <div className="hidden sm:block">
+            <CallToAction />
+          </div>
+
           {/* Menu mobile */}
           <Sheet>
-            <SheetTrigger className="hidden max-sm:block">
+            <SheetTrigger className="block sm:hidden">
               <Menu className="h-6 w-6" />
             </SheetTrigger>
             <SheetContent side="right" className="w-[200px]">
               <SheetHeader>
                 <SheetTitle>Menu</SheetTitle>
               </SheetHeader>
-              {/* Menu mobile avec sections */}
               <div className="flex flex-col gap-6 pt-10">
-                {/* Section authentification */}
                 <div className="flex flex-col gap-4 border-b border-border pb-6">
                   <Link href="/sign-in">
-                    <p className="text-gray-900 font-medium">Sign In</p>
+                    <p className="font-medium text-gray-900">Sign In</p>
                   </Link>
                   <Link href="/register">
-                    <p className="text-gray-900 font-medium">Register</p>
+                    <p className="font-medium text-gray-900">Register</p>
                   </Link>
                 </div>
-                {/* Section navigation principale */}
               </div>
             </SheetContent>
           </Sheet>
-          {/* Menu mobile */}
         </div>
-        <div className="grid grid-cols-7 gap-4 max-sm:hidden">
-          {/* grid vide pour me permettre de mettre de bouger les liens sur la 2e colonne */}
-          <div className=""></div>
-          {/* rendre les lien interactifs */}
-          <div className="flex gap-14 col-span-5 pl-20 m-3 max-lg:gap-10 max-md:gap-6 max-md:pl-10">
-            <Link href="/">
-              <p className="text-[#87878C] text-sm">Holographic Neon Jacket</p>
-            </Link>
 
+        {/* Second bloc - Navigation et Location */}
+        <div className="hidden sm:grid sm:grid-cols-7 sm:gap-4">
+          <div></div>
+          <div className="col-span-5 m-3 flex gap-6 pl-10 md:gap-10 lg:gap-14 lg:pl-20 lg:pl-8">
+            <Link href="/">
+              <p className="text-sm text-[#87878C]">Holographic Neon Jacket</p>
+            </Link>
             <Link href="/">
               <p className="text-sm text-gray-900">Casual Streetwear</p>
             </Link>
-
             <Link href="/">
-              <p className="text-[#87878C] text-sm">80&apos;s Outfit</p>
+              <p className="text-sm text-[#87878C]">80&apos;s Outfit</p>
             </Link>
           </div>
 
-          <div className="text-center m-3 flex gap-2 max-lg:gap-1 ">
+          <div className="m-3 flex gap-1 text-center lg:gap-2">
             <LocationButton />
-            <div className="flex gap-1 ">
-              <p className="text-[#1D1D1F] text-sm">
+            <div className="flex gap-1">
+              <p className="text-sm text-[#1D1D1F]">
                 <span className="text-[#87878C]">Ship to</span> Address
               </p>
-              <ChevronDown size={20} className="max-md:w-4" />
+              <ChevronDown className="w-4 md:w-5" />
             </div>
           </div>
         </div>

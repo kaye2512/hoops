@@ -6,7 +6,7 @@ import HeartButton from "./heart-button";
 
 export default function IconCTA() {
   return (
-    <div className="flex items-center gap-4 max-lg:gap-3 max-md:gap-2 max-sm:hidden">
+    <div className="hidden sm:flex sm:items-center sm:gap-2 md:gap-3 lg:gap-4">
       <BellButton />
       <HeartButton />
       <BagButton />

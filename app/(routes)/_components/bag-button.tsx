@@ -6,7 +6,10 @@ export default function BagButton() {
   */
   return (
     <div className="cursor-pointer bg-slate-50 rounded-md">
-      <Bag size={60} className=" max-sm:w-8 max-sm:h-8" />
+      <Bag
+        size={60}
+        className="h-6 w-6 sm:h-7 sm:w-7 md:h-8 md:w-8 lg:h-6 lg:w-6"
+      />
     </div>
   );
 }
