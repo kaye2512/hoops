@@ -1,5 +1,5 @@
 import Image from "next/image";
-import heart from "../../public/images/fav.png";
+import heart from "../../public/images/heart - outline.png";
 
 export default function Heart(props: {
   size?: number;

@@ -1,5 +1,5 @@
 import Image from "next/image";
-import bag from "@/public/images/bag.png";
+import bag from "@/public/images/bag - outline.png";
 
 export default function Bag(props: {
   size?: number;

@@ -1,5 +1,5 @@
 import Image from "next/image";
-import notif from "@/public/images/notif.png";
+import notif from "@/public/images/notif-iconly.png";
 
 export default function Notif(props: {
   size?: number;
