@@ -12,7 +12,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import IconCTA from "./icon-cta";
+
 
 export default function NavBar() {
   return (
@@ -24,9 +24,6 @@ export default function NavBar() {
           {/* SearchFilter et CallToAction cachés sur mobile */}
           <div className="hidden sm:block">
             <SearchFilter />
-          </div>
-          <div className="hidden sm:block">
-            <IconCTA />
           </div>
           <div className="hidden sm:block">
             <CallToAction />
