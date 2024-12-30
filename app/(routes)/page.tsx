@@ -1,11 +1,13 @@
 import NavBar from "@/./app/(routes)/_components/NavBar";
 import Header from "./_components/header";
+import TopSeling from "./_components/top-selling";
 
 export default function Home() {
   return (
     <div>
       <NavBar />
       <Header />
+      <TopSeling />
     </div>
   );
 }
