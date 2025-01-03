@@ -1,18 +1,25 @@
 import Image from "next/image";
-import sweatwear from "@/public/images/ryan-hoffman-A7f7XRKgUWc-unsplash.jpg";
 
-export default function Card() {
+export default function Card(props: {
+  name: string;
+  price: number;
+  url: string;
+  new?: boolean;
+}) {
   return (
-    <div className="px-6">
+    <div className="p-3 border">
       <div className="flex justify-between">
-        <p>Card</p>
-        <p>New</p>
+        <p>{props.name}</p>
+        <p className="underline">{props.new ? "New" : "Sale"}</p>
       </div>
       <div className="mt-1">
-        <span className="font-bold">$100</span>
+        <span className="font-bold">{props.price}</span>
       </div>
       <div>
-        <Image src={sweatwear} alt="" width={500} height={300} />
+        <Image src={props.url} alt="" width={500} height={300} />
+      </div>
+      <div className="justify-self-end">
+        <div className="border bg-black rounded-full h-4 w-4 cursor-pointer " />
       </div>
     </div>
   );
