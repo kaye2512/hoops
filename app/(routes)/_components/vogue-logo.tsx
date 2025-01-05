@@ -8,7 +8,7 @@ export default function VogueLogo() {
       width={200}
       height={100}
       alt="vogue-logo"
-      className="h-5 w-20"
+      className="h-5 w-40 md:h-4 md:w-32 lg:h-6 lg:w-32"
     />
   );
 }

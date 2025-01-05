@@ -5,31 +5,36 @@ import BritishLogo from "./british-logo";
 export default function OurPartner() {
   return (
     <Container>
-      <div className="p-4 sm:p-6 md:p-8">
-        <h1 className="text-center font-bold text-2xl">Our Partner</h1>
-        <div className="flex flex-col gap-4">
-          <div className="flex flex-col gap-2">
+      <div className="">
+        <div className="flex mt-4 justify-center items-center md:justify-start md:items-start md:mt-8 lg:justify-start lg:items-start lg:mt-12">
+          <h1 className="font-bold text-2xl md:text-3xl lg:text-4xl ">
+            Our Partner
+          </h1>
+        </div>
+
+        <div className="flex mt-4 gap-8 md:flex-row md:gap-8 md:mt-8 lg:mt-12 lg:gap-32 lg:flex-row">
+          <div className="flex  gap-2 md:flex-row md:gap-2">
             <div>
               <VogueLogo />
             </div>
             <p>
-              “ It was an absolute pleasure working with them. They are the
-              best, Highly Recommended! ”
+              &ldquo;It was an absolute pleasure working with them. They are the
+              best, Highly Recommended!&rdquo;
             </p>
           </div>
-          <div className="">
-            <p>
-              “Love this! Does exactly what it is supposed to do and so far
-              without any real issues.”
+          <div className="flex items-center justify-center">
+            <p className="text-center">
+              &ldquo;Love this! Does exactly what it is supposed to do and so
+              far without any real issues.&rdquo;
             </p>
           </div>
-          <div className="flex flex-col gap-2">
+          <div className="flex gap-2 md:flex-row md:gap-2">
             <div>
               <BritishLogo />
             </div>
             <p>
-              “Thanks. I am fully satisfied and would recommend buying from them
-              as they have made my life so much easier :) ”{" "}
+              &ldquo;Thanks. I am fully satisfied and would recommend buying
+              from them as they have made my life so much easier :)&rdquo;
             </p>
           </div>
         </div>
