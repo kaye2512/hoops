@@ -8,9 +8,6 @@ export default function Header() {
     >
       <div className="flex flex-col justify-center h-full pl-8 md:pl-16 lg:pl-24">
         <div className="flex flex-col w-60 md:w-80 lg:w-[700px] justify-center items-center lg:items-start lg:ml-20">
-          <span className="text-[#1F2937] text-xs font-bold text-center md:text-sm lg:text-sm lg:w-full">
-            support
-          </span>
           <h1 className="text-[#1F2937] text-xl font-bold mt-4 md:text-2xl lg:text-6xl tracking-tighther lg:leading-tight">
             Explore a World of Style <br className="hidden lg:block" />
             and Comfort

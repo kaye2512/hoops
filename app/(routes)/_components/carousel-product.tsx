@@ -9,7 +9,7 @@ import ArrowRightButton from "@/components/icons/arrow-right-button";
 export default function CarouselProduct() {
   return (
     /* responsive carousel */
-    <Container className="py-[48px] h-[918px]">
+    <Container className="my-12 h-[918px]">
       <div className="bg-[#F3F4F6] py-12">
         <div className="flex justify-center items-center">
           <h1 className="font-bold text-2xl md:text-3xl lg:text-4xl">
