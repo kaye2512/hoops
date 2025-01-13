@@ -14,10 +14,10 @@ export default function CallToAction() {
             className="border-2 border-gray-950 text-xs font-semibold sm:text-sm sm:px-3 md:text-base md:px-4"
             variant="secondary"
           >
-            <Link href={"/login"}>Sign in</Link>
+            <Link href={"/sign-in"}>Sign in</Link>
           </Button>
           <Button className="text-xs font-semibold sm:text-sm sm:px-3 md:text-base md:px-4">
-            <Link href={"/signup"}>Register</Link>
+            <Link href={"/sign-up"}>Register</Link>
           </Button>
         </div>
       </div>

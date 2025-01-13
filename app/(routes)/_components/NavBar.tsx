@@ -13,7 +13,6 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 
-
 export default function NavBar() {
   return (
     <div className="border-b border-border">
