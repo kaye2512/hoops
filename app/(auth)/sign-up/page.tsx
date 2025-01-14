@@ -18,10 +18,17 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Separator } from "@/components/ui/separator";
-import FacebookIcon from "@/components/icons/facebook-icon";
-import GoogleIcon from "@/components/icons/google-icon";
+import GoogleSignInButton from "@/components/google-sign-in-button";
+import FacebookSignInButton from "@/components/facebook-sign-in-button";
+import { useState } from "react";
+import axios from "axios";
+import { toast } from "react-hot-toast";
+import { useRouter } from "next/navigation";
 
 export default function SignUp() {
+  const router = useRouter();
+  const [isLoading, setIsLoading] = useState(false);
+
   const form = useForm<z.infer<typeof SignUpSchema>>({
     resolver: zodResolver(SignUpSchema),
     defaultValues: {
@@ -32,6 +39,22 @@ export default function SignUp() {
       confirmpassword: "",
     },
   });
+
+  function onSubmit(values: z.infer<typeof SignUpSchema>) {
+    setIsLoading(true);
+    axios
+      .post("/api/register", values)
+      .then(() => {
+        toast.success("Registered!");
+        router.push("/sign-in");
+      })
+      .catch((error) => {
+        toast.error(error);
+      })
+      .finally(() => {
+        setIsLoading(false);
+      });
+  }
 
   return (
     <div>
@@ -50,7 +73,10 @@ export default function SignUp() {
           <div className="w-full max-w-[680px] px-6 lg:px-24">
             <h1 className="text-2xl font-bold mb-6">Get Started</h1>
             <Form {...form}>
-              <form className="space-y-6">
+              <form
+                className="space-y-6"
+                onSubmit={form.handleSubmit(onSubmit)}
+              >
                 <div className="flex gap-4">
                   <FormField
                     control={form.control}
@@ -60,6 +86,7 @@ export default function SignUp() {
                         <FormLabel>First Name</FormLabel>
                         <FormControl>
                           <Input
+                            disabled={isLoading}
                             placeholder="David"
                             {...field}
                             className="h-12"
@@ -78,6 +105,7 @@ export default function SignUp() {
                         <FormLabel>Last Name</FormLabel>
                         <FormControl>
                           <Input
+                            disabled={isLoading}
                             placeholder="Clerk"
                             {...field}
                             className="h-12"
@@ -97,6 +125,7 @@ export default function SignUp() {
                       <FormLabel>Email adress</FormLabel>
                       <FormControl>
                         <Input
+                          disabled={isLoading}
                           placeholder="email@example.com"
                           {...field}
                           className="h-12"
@@ -115,7 +144,9 @@ export default function SignUp() {
                       <FormLabel>Password</FormLabel>
                       <FormControl>
                         <Input
+                          disabled={isLoading}
                           placeholder="Password"
+                          type="password"
                           {...field}
                           className="h-12"
                         />
@@ -133,6 +164,8 @@ export default function SignUp() {
                       <FormLabel>Confirm password</FormLabel>
                       <FormControl>
                         <Input
+                          disabled={isLoading}
+                          type="password"
                           placeholder="Password"
                           {...field}
                           className="h-12"
@@ -163,22 +196,8 @@ export default function SignUp() {
                   </div>
                 </div>
                 <div className="flex justify-center items-center gap-4 mt-6">
-                  <Button
-                    variant="outline"
-                    className="h-12 flex gap-2 w-full"
-                    onClick={() => {}}
-                  >
-                    <GoogleIcon />
-                    Continue with Google
-                  </Button>
-                  <Button
-                    variant="outline"
-                    className="h-12 flex gap-2 w-full"
-                    onClick={() => {}}
-                  >
-                    <FacebookIcon />
-                    Continue with Facebook
-                  </Button>
+                  <GoogleSignInButton />
+                  <FacebookSignInButton />
                 </div>
               </form>
             </Form>

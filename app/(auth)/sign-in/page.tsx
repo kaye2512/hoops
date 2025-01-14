@@ -16,6 +16,10 @@ import { SignInSchema } from "@/lib/zod";
 import { z } from "zod";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import FacebookSignInButton from "@/components/facebook-sign-in-button";
+import GoogleSignInButton from "@/components/google-sign-in-button";
+import { Separator } from "@/components/ui/separator";
+import { login } from "@/app/action/login";
 
 export default function SignIn() {
   const form = useForm<z.infer<typeof SignInSchema>>({
@@ -25,6 +29,10 @@ export default function SignIn() {
       password: "",
     },
   });
+
+  const onSubmit = async (values: z.infer<typeof SignInSchema>) => {
+    await login(values);
+  };
 
   return (
     <div>
@@ -43,7 +51,10 @@ export default function SignIn() {
           <div className="w-full max-w-lg px-8">
             <h1 className="text-2xl font-bold mb-6">Get Started</h1>
             <Form {...form}>
-              <form className="space-y-6">
+              <form
+                className="space-y-6"
+                onSubmit={form.handleSubmit(onSubmit)}
+              >
                 <FormField
                   control={form.control}
                   name="email"
@@ -70,6 +81,7 @@ export default function SignIn() {
                       <FormLabel>Password</FormLabel>
                       <FormControl>
                         <Input
+                          type="password"
                           placeholder="Password"
                           {...field}
                           className="h-12"
@@ -83,8 +95,17 @@ export default function SignIn() {
                 <Button type="submit" className="w-full h-12 text-lg">
                   Sign In
                 </Button>
+                <div className="">
+                  <div className=" inset-0 flex items-center">
+                    <Separator className="w-full" />
+                  </div>
+                </div>
               </form>
             </Form>
+            <div className="flex justify-center items-center gap-4 mt-6">
+              <GoogleSignInButton />
+              <FacebookSignInButton />
+            </div>
           </div>
         </div>
       </div>
