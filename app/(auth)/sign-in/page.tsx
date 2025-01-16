@@ -20,8 +20,12 @@ import FacebookSignInButton from "@/components/facebook-sign-in-button";
 import GoogleSignInButton from "@/components/google-sign-in-button";
 import { Separator } from "@/components/ui/separator";
 import { login } from "@/app/action/login";
+import { useState } from "react";
+import { toast } from "react-hot-toast";
 
 export default function SignIn() {
+  const [isLoading, setIsLoading] = useState(false);
+
   const form = useForm<z.infer<typeof SignInSchema>>({
     resolver: zodResolver(SignInSchema),
     defaultValues: {
@@ -31,7 +35,23 @@ export default function SignIn() {
   });
 
   const onSubmit = async (values: z.infer<typeof SignInSchema>) => {
-    await login(values);
+    console.log(values);
+    setIsLoading(true);
+    login(values)
+      .then((res) => {
+        if (res?.error) {
+          setIsLoading(false);
+        } else {
+          toast.success("Logged in!");
+          setIsLoading(false);
+        }
+      })
+      .catch((error) => {
+        return toast.error(error);
+      })
+      .finally(() => {
+        setIsLoading(false);
+      });
   };
 
   return (
@@ -92,8 +112,9 @@ export default function SignIn() {
                     </FormItem>
                   )}
                 />
+
                 <Button type="submit" className="w-full h-12 text-lg">
-                  Sign In
+                  {isLoading ? "Loading..." : "Sign In"}
                 </Button>
                 <div className="">
                   <div className=" inset-0 flex items-center">

@@ -3,6 +3,7 @@ import { PrismaAdapter } from "@auth/prisma-adapter";
 import { prisma } from "@/lib/prisma";
 import Credentials from "next-auth/providers/credentials";
 import { SignInSchema } from "./lib/zod";
+import bcrypt from "bcryptjs";
 
 export const { handlers, auth, signIn, signOut } = NextAuth({
   adapter: PrismaAdapter(prisma),
@@ -19,18 +20,27 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
         // For example, you can check if the user exists, and then return
         // false if they don't, to show an error message (e.g., no account with that email address exists).
         const validatedCredentials = SignInSchema.parse(credentials);
+        if (!validatedCredentials) {
+          return new Error("Invalid credentials");
+        }
 
         const user = await prisma.user.findFirst({
           where: {
             email: validatedCredentials.email,
-            password: validatedCredentials.password,
           },
         });
 
-        if (!user) {
+        if (!user || !user.password || !user.email) {
           return new Error("Invalid email or password");
         }
-        return user;
+        const isPasswordCorrect = await bcrypt.compare(
+          validatedCredentials.password,
+          user.password
+        );
+        if (isPasswordCorrect) {
+          return user;
+        }
+        return null;
       },
     }),
   ],
