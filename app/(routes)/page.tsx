@@ -7,7 +7,11 @@ import CarouselProduct from "./_components/carousel-product";
 import TrustPartner from "./_components/trust-partner";
 import Footer from "./_components/footer";
 
-export default function Home() {
+export default async function Home() {
+  /*  const session = await auth();
+  if (!session) {
+    redirect("/sign-in");
+  } */
   return (
     <div>
       <NavBar />

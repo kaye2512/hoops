@@ -35,7 +35,6 @@ export default function SignIn() {
   });
 
   const onSubmit = async (values: z.infer<typeof SignInSchema>) => {
-    console.log(values);
     setIsLoading(true);
     login(values)
       .then((res) => {
