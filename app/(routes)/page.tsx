@@ -1,17 +1,13 @@
-import NavBar from "@/./app/(routes)/_components/NavBar";
-import Header from "./_components/header";
-import TopSeling from "./_components/top-selling";
-import OurPartner from "./_components/our-partern";
-import Deal from "./_components/deal";
-import CarouselProduct from "./_components/carousel-product";
-import TrustPartner from "./_components/trust-partner";
-import Footer from "./_components/footer";
+import CarouselProduct from "./dashboard/_components/carousel-product";
+import Deal from "./dashboard/_components/deal";
+import Footer from "./dashboard/_components/footer";
+import Header from "./dashboard/_components/header";
+import NavBar from "./dashboard/_components/NavBar";
+import OurPartner from "./dashboard/_components/our-partern";
+import TopSeling from "./dashboard/_components/top-selling";
+import TrustPartner from "./dashboard/_components/trust-partner";
 
-export default async function Home() {
-  /*  const session = await auth();
-  if (!session) {
-    redirect("/sign-in");
-  } */
+export default function Page() {
   return (
     <div>
       <NavBar />

@@ -19,7 +19,7 @@ import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Separator } from "@/components/ui/separator";
 import GoogleSignInButton from "@/components/google-sign-in-button";
-import FacebookSignInButton from "@/components/facebook-sign-in-button";
+import GithubSignInButton from "@/components/Github-sign-in-button";
 import { useState } from "react";
 import axios from "axios";
 import { toast } from "react-hot-toast";
@@ -46,7 +46,7 @@ export default function SignUp() {
       .post("/api/register", values)
       .then(() => {
         toast.success("Registered!");
-        router.push("/sign-in");
+        router.push("/dashboard");
       })
       .catch((error) => {
         toast.error(error);
@@ -197,7 +197,7 @@ export default function SignUp() {
                 </div>
                 <div className="flex justify-center items-center gap-4 mt-6">
                   <GoogleSignInButton />
-                  <FacebookSignInButton />
+                  <GithubSignInButton />
                 </div>
               </form>
             </Form>
