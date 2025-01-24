@@ -73,18 +73,17 @@ export default function SignInForm() {
             <Button className="w-full h-12" type="submit">
               Sign In
             </Button>
+            <div className="">
+              <div className=" inset-0 flex items-center">
+                <Separator className="w-full" />
+              </div>
+            </div>
+            <div className="flex justify-center items-center gap-4 mt-6">
+              <GoogleSignInButton />
+              <GithubSignInButton />
+            </div>
           </form>
         </Form>
-
-        <div className="">
-          <div className=" inset-0 flex items-center">
-            <Separator className="w-full" />
-          </div>
-        </div>
-        <div className="flex justify-center items-center gap-4 mt-6">
-          <GoogleSignInButton />
-          <GithubSignInButton />
-        </div>
       </div>
     </div>
   );
