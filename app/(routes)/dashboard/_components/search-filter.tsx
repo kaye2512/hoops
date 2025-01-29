@@ -6,7 +6,7 @@ import SelectOption from "./select-option";
 import Image from "next/image";
 import { useState, useRef, useEffect } from "react";
 
-export default function SearchFilter() {
+export function SearchFilter() {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [searchValue, setSearchValue] = useState<string>("");
   const searchRef = useRef<HTMLDivElement>(null);
@@ -30,7 +30,6 @@ export default function SearchFilter() {
     document.addEventListener("mousedown", handleClickOutside);
     document.addEventListener("keydown", handleEscapeKey);
 
-    document.addEventListener("mousedown", handleClickOutside);
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
       document.removeEventListener("keydown", handleEscapeKey);
@@ -47,10 +46,7 @@ export default function SearchFilter() {
   return (
     <div className="w-full px-6 sm:px-12 md:px-16 lg:w-[600px] lg:px-0 xl:w-[700px]">
       <div className="mt-2 relative" ref={searchRef}>
-        <div
-          className="flex w-full items-center bg-gray-100 rounded-md h-12 pl-3 outline-1 -outline-offset-1 outline-gray-300 has-[input:focus-within]:outline-none has-[input:focus-within]:outline-1 has-[input:focus-within]:-outline-offset-2 has-[input:focus-within]:outline-gray-300"
-          onClick={() => setIsSearchOpen(!isSearchOpen)}
-        >
+        <div className="flex w-full items-center bg-gray-100 rounded-md h-12 pl-3 outline-1 -outline-offset-1 outline-gray-300 has-[input:focus-within]:outline-none has-[input:focus-within]:outline-1 has-[input:focus-within]:-outline-offset-2 has-[input:focus-within]:outline-gray-300">
           <div className="hidden lg:grid lg:shrink-0 lg:grid-cols-1 lg:focus-within:relative lg:bg-gray-100">
             <SelectOption />
           </div>
@@ -73,7 +69,6 @@ export default function SearchFilter() {
           </div>
         </div>
 
-        {/* Search Results Container - Added conditional rendering */}
         {isSearchOpen && (
           <div className="absolute w-full mt-2 rounded-lg border border-gray-200 bg-white p-4 shadow-sm">
             {/* Recent Searches */}

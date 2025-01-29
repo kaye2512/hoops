@@ -1,6 +1,6 @@
 import Logo from "./logo";
 import Container from "@/components/container";
-import SearchFilter from "./search-filter";
+import { SearchFilter } from "./search-filter";
 import CallToAction from "./call-to-action";
 import Link from "next/link";
 import { ChevronDown, Menu } from "lucide-react";
