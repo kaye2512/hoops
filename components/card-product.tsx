@@ -1,3 +1,4 @@
+"use client";
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 
@@ -8,11 +9,11 @@ export default function CardProduct(props: {
   seller: string;
 }) {
   return (
-    <div className="p-3 border w-[400px] h-[580px]">
+    <div className="p-3 border rounded-lg w-full h-[580px]">
       <div className="py-8 px-4">
         <p className="font-bold uppercase text-[#1D1D1F]">{props.name}</p>
       </div>
-      <div className="rounded-lg border w-[336px] h-[372px] relative   ">
+      <div className="rounded-lg border w-full h-[372px] relative   ">
         <Image
           src={props.image}
           alt=""

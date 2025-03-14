@@ -1,6 +1,5 @@
 import Container from "@/components/container";
 import Logo from "../../dashboard/_components/logo";
-import SearchFilter from "../../dashboard/_components/search-filter";
 import CallToAction from "../../dashboard/_components/call-to-action";
 import {
   Sheet,
@@ -9,74 +8,52 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import { ChevronDown, Menu } from "lucide-react";
-import Link from "next/link";
+import { ChevronDown, Link, Menu } from "lucide-react";
 import LocationButton from "../../dashboard/_components/location-button";
 
 export default function NavBarProduct() {
   return (
-    <div className="border-b border-border">
-      <Container>
-        {/* Premier bloc - Header principal */}
-        <div className="flex h-16 items-center justify-between">
-          <Logo />
-          {/* SearchFilter et CallToAction cachés sur mobile */}
-          <div className="hidden sm:block">
-            <SearchFilter />
-          </div>
-          <div className="hidden sm:block">
-            <CallToAction />
-          </div>
+    <Container className="border-b border-border flex justify-between items-center ">
+      {/* amélioration du responsive à faire  */}
+      <div className="flex gap-2 hidden sm:flex">
+        <div className="bg-red-500 h-6 w-6 rounded-full"></div>
+        <div className="flex gap-1 items-center">
+          <LocationButton />
+          <p className="text-xs">
+            <span className="text-[#87878C]">Ship to</span> Address
+          </p>
+          <ChevronDown className="w-4 h-4" />
+        </div>
+      </div>
+      <div>
+        <Logo />
+      </div>
+      <div className="">
+        <div className="hidden sm:block">
+          <CallToAction />
+        </div>
 
-          {/* Menu mobile */}
-          <Sheet>
-            <SheetTrigger className="block sm:hidden">
-              <Menu className="h-6 w-6" />
-            </SheetTrigger>
-            <SheetContent side="right" className="w-[200px]">
-              <SheetHeader>
-                <SheetTitle>Menu</SheetTitle>
-              </SheetHeader>
-              <div className="flex flex-col gap-6 pt-10">
-                <div className="flex flex-col gap-4 border-b border-border pb-6">
-                  <Link href="/sign-in">
-                    <p className="font-medium text-gray-900">Sign In</p>
-                  </Link>
-                  <Link href="/register">
-                    <p className="font-medium text-gray-900">Register</p>
-                  </Link>
-                </div>
+        <Sheet>
+          <SheetTrigger className="block sm:hidden">
+            <Menu className="h-6 w-6" />
+          </SheetTrigger>
+          <SheetContent side="right" className="w-[200px]">
+            <SheetHeader>
+              <SheetTitle>Menu</SheetTitle>
+            </SheetHeader>
+            <div className="flex flex-col gap-6 pt-10">
+              <div className="flex flex-col gap-4 border-b border-border pb-6">
+                <Link href="/sign-in">
+                  <p className="font-medium text-gray-900">Sign In</p>
+                </Link>
+                <Link href="/register">
+                  <p className="font-medium text-gray-900">Register</p>
+                </Link>
               </div>
-            </SheetContent>
-          </Sheet>
-        </div>
-
-        {/* Second bloc - Navigation et Location */}
-        <div className="hidden sm:grid sm:grid-cols-7 sm:gap-4">
-          <div></div>
-          <div className="col-span-5 m-3 flex gap-6 pl-10 md:gap-10 lg:gap-14 lg:pl-20 lg:pl-8">
-            <Link href="/">
-              <p className="text-sm text-[#87878C]">Holographic Neon Jacket</p>
-            </Link>
-            <Link href="/">
-              <p className="text-sm text-gray-900">Casual Streetwear</p>
-            </Link>
-            <Link href="/">
-              <p className="text-sm text-[#87878C]">80&apos;s Outfit</p>
-            </Link>
-          </div>
-
-          <div className="m-3 flex gap-1 text-center lg:gap-2">
-            <LocationButton />
-            <div className="flex gap-1">
-              <p className="text-sm text-[#1D1D1F]">
-                <span className="text-[#87878C]">Ship to</span> Address
-              </p>
-              <ChevronDown className="w-4 md:w-5" />
             </div>
-          </div>
-        </div>
-      </Container>
-    </div>
+          </SheetContent>
+        </Sheet>
+      </div>
+    </Container>
   );
 }

@@ -79,10 +79,10 @@ export const data = [
 export default function ProductCard() {
   return (
     <Container>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-10 mt-[315px] ">
-        {data.map((item) => (
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-10 mt-[90px]  ">
+        {data.map((item, index) => (
           <CardProduct
-            key={item.id}
+            key={index}
             name={item.name}
             image={item.image}
             category={item.category}
