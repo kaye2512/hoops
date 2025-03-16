@@ -1,14 +1,27 @@
 "use client";
 import { ArrowRight } from "lucide-react";
+import { useState } from "react";
 
-export default function CardProduct(props: {
+export function CardProduct(props: {
   name: string;
   image: string;
   category: string;
   seller: string;
 }) {
+  const [isChecked, setIsChecked] = useState(false);
+
   return (
-    <div className="p-3 border rounded-lg w-full h-full">
+    <div
+      className={`p-3 border rounded-lg w-full h-full relative ${
+        isChecked ? "bg-blue-50" : ""
+      }`}
+    >
+      <input
+        type="checkbox"
+        checked={isChecked}
+        onChange={(e) => setIsChecked(e.target.checked)}
+        className="absolute top-4 right-4 h-5 w-5 cursor-pointer"
+      />
       <div className="p-5">
         <div className="py-8">
           <p className="font-bold uppercase text-[#1D1D1F]">{props.name}</p>
@@ -23,7 +36,7 @@ export default function CardProduct(props: {
             <span className="font-bold text-[#1D1D1F]">{props.seller}</span>
           </div>
 
-          <div className="flex items-center ">
+          <div className="flex items-center">
             <ArrowRight className="cursor-pointer" />
           </div>
         </div>
