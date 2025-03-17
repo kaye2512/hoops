@@ -1,7 +1,7 @@
 import { ChevronRight } from "lucide-react";
 export default function HeaderHomePage() {
   return (
-    <div className="flex flex-col items-center justify-center py-24 w-full">
+    <div className="flex flex-col items-center justify-center py-24 w-full h-screen">
       <div className="flex gap-2">
         <p className="text-sm md:text-base lg:text-lg">Home</p>
         <ChevronRight className="w-3 h-5 text-[#87878C] md:w-4 md:h-6 lg:w-5 lg:h-7" />
