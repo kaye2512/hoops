@@ -1,6 +1,7 @@
 import Image from "next/image";
 import HeartButton from "../ui/heart-button";
 import { LockKeyhole } from "lucide-react";
+import PromoBadge from "./promo-badge";
 
 export default function ProductCard(props: {
   name: string;
@@ -9,6 +10,8 @@ export default function ProductCard(props: {
   description?: string;
   access?: boolean;
   accessText?: string;
+  promo?: boolean;
+  promoMessage: string;
 }) {
   return (
     <div>
@@ -20,6 +23,12 @@ export default function ProductCard(props: {
           height={300}
           className=""
         />
+        {props.promo && (
+          <div className="absolute top-3 left-3 flex gap-2">
+            <PromoBadge message={props.promoMessage} />
+          </div>
+        )}
+
         <div className="absolute top-3 right-3">
           <HeartButton />
         </div>

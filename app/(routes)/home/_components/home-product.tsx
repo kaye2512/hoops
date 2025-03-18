@@ -9,6 +9,8 @@ const data = [
     description: "A piece of short description",
     access: true,
     accessText: "New in",
+    promo: true,
+    promoMessage: "50% off",
   },
   {
     id: 2,
@@ -18,6 +20,8 @@ const data = [
     description: "A piece of short description",
     access: false,
     accessText: "Member access",
+    promo: false,
+    promoMessage: "50% off",
   },
   {
     id: 3,
@@ -27,6 +31,8 @@ const data = [
     description: "A piece of short description",
     access: true,
     accessText: "New in",
+    promo: true,
+    promoMessage: "50% off",
   },
   {
     id: 4,
@@ -36,6 +42,8 @@ const data = [
     description: "A piece of short description",
     access: false,
     accessText: "Member access",
+    promo: false,
+    promoMessage: "50% off",
   },
   {
     id: 5,
@@ -45,6 +53,8 @@ const data = [
     description: "A piece of short description",
     access: true,
     accessText: "Trending Now",
+    promo: true,
+    promoMessage: "50% off",
   },
   {
     id: 6,
@@ -54,6 +64,8 @@ const data = [
     description: "A piece of short description",
     access: true,
     accessText: "10 items left",
+    promo: false,
+    promoMessage: "50% off",
   },
 ];
 
@@ -69,6 +81,8 @@ export default function HomeProduct() {
           description={product.description}
           access={product.access}
           accessText={product.accessText}
+          promo={product.promo}
+          promoMessage={product.promoMessage}
         />
       ))}
     </div>

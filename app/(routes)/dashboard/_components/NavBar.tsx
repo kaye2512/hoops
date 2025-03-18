@@ -54,14 +54,14 @@ export default function NavBar() {
       <div className="hidden sm:grid sm:grid-cols-7 sm:gap-4">
         <div></div>
         <div className="col-span-5 m-3 flex gap-6 pl-10 md:gap-10 lg:gap-14 lg:pl-20 lg:pl-8">
-          <Link href="/">
-            <p className="text-sm text-[#87878C]">Holographic Neon Jacket</p>
+          <Link href="/" className="text-sm text-[#87878C]">
+            Holographic Neon Jacket
           </Link>
-          <Link href="/">
-            <p className="text-sm text-gray-900">Casual Streetwear</p>
+          <Link href="/" className="text-sm text-gray-900">
+            Casual Streetwear
           </Link>
-          <Link href="/">
-            <p className="text-sm text-[#87878C]">80&apos;s Outfit</p>
+          <Link href="/" className="text-sm text-gray-900">
+            80&apos;s Outfit
           </Link>
         </div>
 
