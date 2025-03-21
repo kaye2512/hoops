@@ -16,11 +16,11 @@ export default function BagSection() {
             <h1 className="text-2xl font-bold text-[#1D1D1F]">Bag</h1>
           </div>
         </div>
-        <div className="flex flex-col w-full gap-8 lg:flex-row lg:gap-12">
-          <div className="w-full lg:w-1/2">
+        <div className="flex flex-col w-full gap-8 lg:flex-row lg:gap-12 lg:justify-between">
+          <div className="w-full lg:w-full">
             <LeftBagSection />
           </div>
-          <div className="w-full lg:w-1/2">
+          <div className="w-full lg:w-1/3">
             <RightBagSection />
           </div>
         </div>
