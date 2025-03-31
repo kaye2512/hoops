@@ -1,6 +1,7 @@
 "use client";
 
 import ShoppingModal from "@/components/modal/shopping-modal";
+import WishlistModal from "@/components/modal/wishlist-modal";
 import { useEffect, useState } from "react";
 
 export const ModalProvider = () => {
@@ -17,6 +18,7 @@ export const ModalProvider = () => {
   return (
     <>
       <ShoppingModal />
+      <WishlistModal />
     </>
   );
 };

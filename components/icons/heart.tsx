@@ -5,6 +5,7 @@ export default function Heart(props: {
   size?: number;
   heightsize?: number;
   className?: string;
+  onClick?: () => void;
 }) {
   return (
     <Image
