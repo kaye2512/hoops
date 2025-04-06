@@ -1,5 +1,6 @@
 import useWishlistModal from "@/hooks/use-wishlist-modal";
 import { Modal } from "../ui/modal";
+import WishlistCard from "../wishlist-card";
 
 export default function WishlistModal() {
   const WishlistModal = useWishlistModal();
@@ -9,6 +10,12 @@ export default function WishlistModal() {
       onClose={WishlistModal.onClose}
       title="Wishlist"
       description="Add Product to your bag"
-    ></Modal>
+    >
+      <div className="flex gap-4">
+        <WishlistCard />
+        <WishlistCard />
+        <WishlistCard />
+      </div>
+    </Modal>
   );
 }
