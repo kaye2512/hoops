@@ -1,10 +1,10 @@
-import Logo from "./logo";
+import Logo from "../../../../components/logo/logo";
 import Container from "@/components/container";
 import SearchFilter from "./search-filter";
 import CallToAction from "./call-to-action";
 import Link from "next/link";
 import { ChevronDown, Menu } from "lucide-react";
-import LocationButton from "./location-button";
+import LocationButton from "../../../../components/button/location-button";
 import {
   Sheet,
   SheetContent,

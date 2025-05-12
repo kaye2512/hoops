@@ -1,6 +1,6 @@
 import Container from "@/components/container";
-import VogueLogo from "./vogue-logo";
-import BritishLogo from "./british-logo";
+import VogueLogo from "../../../../components/logo/vogue-logo";
+import BritishLogo from "../../../../components/logo/british-logo";
 
 export default function OurPartner() {
   return (

@@ -1,10 +1,10 @@
 import Container from "@/components/container";
-import GoogleLogo from "./google-logo";
-import DribbleLogo from "./dribble-logo";
-import AmazonLogo from "./amazon-logo";
-import LinkedInLogo from "./linkedin-logo";
-import BlackBerryLogo from "./blackberry-logo";
-import MicrosoftLogo from "./microsoft-logo";
+import GoogleLogo from "../../../../components/logo/google-logo";
+import DribbleLogo from "../../../../components/logo/dribble-logo";
+import AmazonLogo from "../../../../components/logo/amazon-logo";
+import LinkedInLogo from "../../../../components/logo/linkedin-logo";
+import BlackBerryLogo from "../../../../components/logo/blackberry-logo";
+import MicrosoftLogo from "../../../../components/logo/microsoft-logo";
 
 export default function TrustPartner() {
   return (

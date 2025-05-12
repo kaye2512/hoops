@@ -1,5 +1,5 @@
 import Container from "@/components/container";
-import Logo from "../../dashboard/_components/logo";
+import Logo from "../../../../components/logo/logo";
 import CallToAction from "../../dashboard/_components/call-to-action";
 import {
   Sheet,
@@ -9,7 +9,7 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { ChevronDown, Link, Menu } from "lucide-react";
-import LocationButton from "../../dashboard/_components/location-button";
+import LocationButton from "../../../../components/button/location-button";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 export default function NavBarProduct() {
