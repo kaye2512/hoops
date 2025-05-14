@@ -1,10 +1,9 @@
-import Logo from "../../../../components/logo/logo";
 import Container from "@/components/container";
-import SearchFilter from "./search-filter";
+
 import CallToAction from "./call-to-action";
 import Link from "next/link";
 import { ChevronDown, Menu } from "lucide-react";
-import LocationButton from "../../../../components/button/location-button";
+
 import {
   Sheet,
   SheetContent,
@@ -12,6 +11,9 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
+import Logo from "../logo/logo";
+import SearchFilter from "../search/search-filter";
+import LocationButton from "../button/location-button";
 
 export default function NavBar() {
   return (

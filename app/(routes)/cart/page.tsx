@@ -1,6 +1,7 @@
-import NavBar from "../dashboard/_components/NavBar";
-import TrustPartner from "../dashboard/_components/trust-partner";
+import NavBar from "@/components/navbar/NavBar";
+
 import BagSection from "./_components/bag-section";
+import TrustPartner from "@/components/trust-partner";
 
 export default async function Cart() {
   return (

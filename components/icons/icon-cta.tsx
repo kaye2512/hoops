@@ -1,8 +1,6 @@
-import BellButton from "../../../../components/button/bell-button";
-
-import BagButton from "../../../../components/button/bag-button";
-
-import HeartButton from "../../../../components/button/heart-button";
+import BagButton from "../button/bag-button";
+import BellButton from "../button/bell-button";
+import HeartButton from "../button/heart-button";
 
 export default function IconCTA() {
   return (

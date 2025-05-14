@@ -1,6 +1,6 @@
 import Container from "@/components/container";
 import Logo from "../../../../components/logo/logo";
-import CallToAction from "../../dashboard/_components/call-to-action";
+
 import {
   Sheet,
   SheetContent,
@@ -11,6 +11,7 @@ import {
 import { ChevronDown, Link, Menu } from "lucide-react";
 import LocationButton from "../../../../components/button/location-button";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import CallToAction from "@/components/navbar/call-to-action";
 
 export default function NavBarProduct() {
   return (

@@ -2,9 +2,10 @@
 
 import { Separator } from "@/components/ui/separator";
 import { Search } from "lucide-react";
-import SelectOption from "./select-option";
+
 import Image from "next/image";
 import { useState, useRef, useEffect } from "react";
+import SelectOption from "./select-option";
 
 export default function SearchFilter() {
   const [isSearchOpen, setIsSearchOpen] = useState(false);

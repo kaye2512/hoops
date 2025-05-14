@@ -1,4 +1,4 @@
-import Footer from "./dashboard/_components/footer";
+import Footer from "../../components/section/footer";
 import "../globals.css";
 import { ModalProvider } from "@/provider/modal-provider";
 

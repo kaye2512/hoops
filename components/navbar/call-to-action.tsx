@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { Separator } from "@/components/ui/separator";
-import IconCTA from "./icon-cta";
+import IconCTA from "../icons/icon-cta";
 
 export default async function CallToAction() {
   return (

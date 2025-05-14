@@ -1,4 +1,4 @@
-import CardProduct from "@/components/card-product";
+import { CardProduct } from "@/components/card-product";
 import Container from "@/components/container";
 
 export const data = [
