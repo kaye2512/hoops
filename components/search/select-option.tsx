@@ -1,3 +1,5 @@
+"use client";
+import fetchCategories from "@/actions/get-categories";
 import {
   Select,
   SelectContent,
@@ -7,8 +9,13 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { useQuery } from "@tanstack/react-query";
 
 export default function SelectOption() {
+  const { data: categories } = useQuery({
+    queryKey: ["category"],
+    queryFn: fetchCategories,
+  });
   return (
     <div>
       <Select>
@@ -19,9 +26,23 @@ export default function SelectOption() {
               <SelectLabel className="text-sm font-medium text-[#B3B3B3]">
                 Category
               </SelectLabel>
-              <SelectItem value="Men">Men&apos;s</SelectItem>
-              <SelectItem value="Women">Women&apos;s</SelectItem>
-              <SelectItem value="Kid">Kid</SelectItem>
+              {categories && categories.length > 0 ? (
+                categories.map((category) => (
+                  <SelectItem
+                    key={category.id}
+                    value={category.id}
+                    className="text-sm"
+                  >
+                    {category.name}
+                  </SelectItem>
+                ))
+              ) : (
+                <>
+                  <SelectItem value="Men">Men&apos;s</SelectItem>
+                  <SelectItem value="Women">Women&apos;s</SelectItem>
+                  <SelectItem value="Kid">Kid</SelectItem>
+                </>
+              )}
             </SelectGroup>
           </SelectContent>
         </SelectTrigger>

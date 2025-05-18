@@ -3,7 +3,7 @@ import Link from "next/link";
 import { Separator } from "@/components/ui/separator";
 import IconCTA from "../icons/icon-cta";
 
-export default async function CallToAction() {
+export default function CallToAction() {
   return (
     <div className="p-4 sm:p-6 md:p-8">
       <div className="hidden sm:flex sm:items-center sm:gap-4">

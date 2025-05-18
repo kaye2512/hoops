@@ -1,5 +1,7 @@
-import Container from "@/components/container";
+"use client";
 
+import Container from "@/components/container";
+import { Category } from "@/types";
 import CallToAction from "./call-to-action";
 import Link from "next/link";
 import { ChevronDown, Menu } from "lucide-react";
@@ -14,8 +16,18 @@ import {
 import Logo from "../logo/logo";
 import SearchFilter from "../search/search-filter";
 import LocationButton from "../button/location-button";
+import fetchCategories from "@/actions/get-categories";
+import { useQuery } from "@tanstack/react-query";
+import { useState } from "react";
 
 export default function NavBar() {
+  const { data: categories } = useQuery({
+    queryKey: ["category"],
+    queryFn: fetchCategories,
+  });
+
+  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
+
   return (
     <Container className="border-b border-border">
       {/* Premier bloc - Header principal */}
@@ -56,15 +68,58 @@ export default function NavBar() {
       <div className="hidden sm:grid sm:grid-cols-7 sm:gap-4">
         <div></div>
         <div className="col-span-5 m-3 flex gap-6 pl-10 md:gap-10 lg:gap-14 lg:pl-20 lg:pl-8">
-          <Link href="/" className="text-sm text-[#87878C]">
-            Holographic Neon Jacket
-          </Link>
-          <Link href="/" className="text-sm text-gray-900">
-            Casual Streetwear
-          </Link>
-          <Link href="/" className="text-sm text-gray-900">
-            80&apos;s Outfit
-          </Link>
+          {categories && categories.length > 0 ? (
+            categories.map((category: Category) => (
+              <Link
+                key={category.id}
+                href={`/category/${category.id}`}
+                className={`text-sm ${
+                  selectedCategory === category.id
+                    ? "text-gray-900 font-medium"
+                    : "text-[#87878C]"
+                }`}
+                onClick={() => setSelectedCategory(category.id)}
+              >
+                {category.name}
+              </Link>
+            ))
+          ) : (
+            <>
+              <Link
+                href="/"
+                className={`text-sm ${
+                  selectedCategory === "holographic"
+                    ? "text-gray-900 font-medium"
+                    : "text-[#87878C]"
+                }`}
+                onClick={() => setSelectedCategory("holographic")}
+              >
+                Holographic Neon Jacket
+              </Link>
+              <Link
+                href="/"
+                className={`text-sm ${
+                  selectedCategory === "casual"
+                    ? "text-gray-900 font-medium"
+                    : "text-[#87878C]"
+                }`}
+                onClick={() => setSelectedCategory("casual")}
+              >
+                Casual Streetwear
+              </Link>
+              <Link
+                href="/"
+                className={`text-sm ${
+                  selectedCategory === "80s"
+                    ? "text-gray-900 font-medium"
+                    : "text-[#87878C]"
+                }`}
+                onClick={() => setSelectedCategory("80s")}
+              >
+                80&apos;s Outfit
+              </Link>
+            </>
+          )}
         </div>
 
         <div className="m-3 flex gap-1 text-center lg:gap-2">

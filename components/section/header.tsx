@@ -7,7 +7,7 @@ import { useQuery } from "@tanstack/react-query";
 export default function Header() {
   const { data: billboard } = useQuery({
     queryKey: ["billboards"],
-    queryFn: () => fetchBillboard("2cdf872d-0411-41d5-8fd7-bc3ab7a630d8"),
+    queryFn: () => fetchBillboard("296b9a8c-1090-49bc-9e5b-badd3bfc626a"),
   });
 
   return (
