@@ -8,6 +8,7 @@ export interface Category {
   id: string;
   name: string;
   billboard: Billboard;
+  products?: Product[];
 }
 
 export interface Product {

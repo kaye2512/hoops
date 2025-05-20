@@ -1,93 +1,73 @@
+"use client";
+
+import fetchCategories from "@/actions/get-categories";
 import { CardProduct } from "@/components/card-product";
 import Container from "@/components/container";
-
-export const data = [
-  {
-    id: 1,
-    name: "Men's",
-    category: "Men's Collection",
-    image:
-      "https://images.unsplash.com/photo-1618354691551-44de113f0164?q=80&w=2030&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    seller: "Browse over 100+ apparels",
-  },
-  {
-    id: 2,
-    name: "Women's",
-    category: "Women's Collection",
-    image:
-      "https://images.unsplash.com/photo-1618354691551-44de113f0164?q=80&w=2030&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    seller: "Browse over 150+ apparels",
-  },
-  {
-    id: 3,
-    name: "Kids",
-    category: "Kids Collection",
-    image:
-      "https://images.unsplash.com/photo-1618354691551-44de113f0164?q=80&w=2030&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    seller: "Browse over 50+ apparels",
-  },
-  {
-    id: 4,
-    name: "Men's",
-    category: "Men's Collection",
-    image:
-      "https://images.unsplash.com/photo-1618354691551-44de113f0164?q=80&w=2030&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    seller: "Browse over 100+ apparels",
-  },
-  {
-    id: 5,
-    name: "Women's",
-    category: "Women's Collection",
-    image:
-      "https://images.unsplash.com/photo-1618354691551-44de113f0164?q=80&w=2030&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    seller: "Browse over 150+ apparels",
-  },
-  {
-    id: 6,
-    name: "Kids",
-    category: "Kids Collection",
-    image:
-      "https://images.unsplash.com/photo-1618354691551-44de113f0164?q=80&w=2030&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    seller: "Browse over 50+ apparels",
-  },
-  {
-    id: 7,
-    name: "Men's",
-    category: "Men's Collection",
-    image:
-      "https://images.unsplash.com/photo-1618354691551-44de113f0164?q=80&w=2030&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    seller: "Browse over 100+ apparels",
-  },
-  {
-    id: 8,
-    name: "Women's",
-    category: "Women's Collection   ",
-    image:
-      "https://images.unsplash.com/photo-1618354691551-44de113f0164?q=80&w=2030&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    seller: "Browse over 150+ apparels",
-  },
-  {
-    id: 9,
-    name: "Kids",
-    category: "Kids Collection",
-    image:
-      "https://images.unsplash.com/photo-1618354691551-44de113f0164?q=80&w=2030&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    seller: "Browse over 50+ apparels",
-  },
-];
+import { useQuery } from "@tanstack/react-query";
+import { Category } from "@/types";
+import { useRouter } from "next/navigation";
 
 export default function ProductCard() {
+  const router = useRouter();
+  const {
+    data: categories,
+    isLoading,
+    error,
+  } = useQuery<Category[]>({
+    queryKey: ["categories"],
+    queryFn: fetchCategories,
+  });
+
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
+
+  if (error) {
+    return <div>Error loading products: {error.message}</div>;
+  }
+
+  if (!categories || categories.length === 0) {
+    return <div>No categories found</div>;
+  }
+
+  const handleCategoryClick = (productId: string) => {
+    router.push(`/product/${productId}`);
+  };
+
   return (
     <Container>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-10 mt-[90px]  ">
-        {data.map((item, index) => (
-          <CardProduct
-            key={index}
-            name={item.name}
-            image={item.image}
-            category={item.category}
-            seller={item.seller}
-          />
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-10 mt-[90px]">
+        {categories.map((category) => (
+          <div key={category.id}>
+            {category.products && category.products.length > 0 ? (
+              category.products.map((product) => (
+                <div
+                  key={product.id}
+                  onClick={() => handleCategoryClick(category.id)}
+                  className="cursor-pointer"
+                >
+                  <CardProduct
+                    name={category.name}
+                    image={product.images[0]?.url || ""}
+                    category={`${category.name} collection`}
+                    seller={`${product.price} €`}
+                  />
+                </div>
+              ))
+            ) : (
+              <div
+                onClick={() => handleCategoryClick(category.id)}
+                className="cursor-pointer"
+              >
+                <CardProduct
+                  name={category.name}
+                  image=""
+                  category={`${category.name} collection`}
+                  seller="Coming soon"
+                />
+              </div>
+            )}
+          </div>
         ))}
       </div>
     </Container>

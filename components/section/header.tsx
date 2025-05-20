@@ -3,12 +3,16 @@
 import headerImage from "@/./public/images/headers.jpg";
 import fetchBillboard from "@/actions/get-billboard";
 import { useQuery } from "@tanstack/react-query";
+import { Button } from "../ui/button";
+import { useRouter } from "next/navigation";
 
 export default function Header() {
   const { data: billboard } = useQuery({
     queryKey: ["billboards"],
     queryFn: () => fetchBillboard("296b9a8c-1090-49bc-9e5b-badd3bfc626a"),
   });
+
+  const router = useRouter();
 
   return (
     <div
@@ -18,7 +22,7 @@ export default function Header() {
       }}
     >
       <div className="flex flex-col justify-center h-full pl-8 md:pl-16 lg:pl-24">
-        <div className="flex flex-col w-60 md:w-80 lg:w-[700px] justify-center items-center lg:items-start lg:ml-20">
+        <div className="flex flex-col w-60 md:w-80 lg:w-[700px] justify-center items-center lg:items-start lg:ml-20 gap-8">
           <h1 className="text-[#1F2937] text-xl font-bold mt-4 md:text-2xl lg:text-6xl tracking-tighther lg:leading-tight">
             {billboard?.label || "Explore a World of Style"}{" "}
           </h1>
@@ -28,6 +32,12 @@ export default function Header() {
             <br className="hidden lg:block" /> casual essentials, we have you
             covered.
           </p>
+          <Button
+            className="rounded-none bg-[#8DF6E9] text-[#141414] hover:bg-[#141414]  hover:text-white transition-all duration-400 ease-in-out"
+            onClick={() => router.push("/product")}
+          >
+            Shop now
+          </Button>
         </div>
       </div>
     </div>

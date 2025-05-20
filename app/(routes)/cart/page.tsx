@@ -1,9 +1,9 @@
 import NavBar from "@/components/navbar/NavBar";
 
 import BagSection from "./_components/bag-section";
-import TrustPartner from "@/components/trust-partner";
+import TrustPartner from "@/components/section/trust-partner";
 
-export default async function Cart() {
+export default function Cart() {
   return (
     <div>
       <NavBar />
